@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Victor Leandro</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Open+Sans:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --text-color: #333;
+            --light-bg: #f4f6f7;
+            --white: #ffffff;
+            --sidebar-width: 300px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #eef2f3;
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .cv-container {
+            display: flex;
+            width: 100%;
+            max-width: 1000px;
+            background: var(--white);
+            margin: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .profile-img-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--accent-color);
+            object-fit: cover;
+            background-color: #ddd;
+            /* Placeholder color */
+            display: inline-block;
+        }
+
+        .contact-info h3,
+        .skills h3,
+        .education h3,
+        .contact-info h3,
+        .skills h3,
+        .education h3,
+        .languages h3,
+        .mentorship h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .contact-item i {
+            color: var(--accent-color);
+            margin-right: 15px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .contact-item a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-color);
+        }
+
+        .education-item {
+            margin-bottom: 15px;
+        }
+
+        .degree {
+            font-weight: 700;
+            color: var(--accent-color);
+            font-size: 0.95rem;
+        }
+
+        .university {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .year {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            font-style: italic;
+        }
+
+        .skill-list,
+        .language-list {
+            list-style: none;
+        }
+
+        .skill-item {
+            margin-bottom: 10px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .skill-bar {
+            height: 6px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background-color: var(--accent-color);
+            width: 80%;
+            /* Default width, specific ones inline */
+        }
+
+        /* Main Content Styling */
+        .main-content {
+            flex: 1;
+            padding: 50px;
+        }
+
+        .header {
+            margin-bottom: 40px;
+        }
+
+        .name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1.1;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title i {
+            background-color: var(--accent-color);
+            color: var(--white);
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 15px;
+            font-size: 0.9rem;
+        }
+
+        .job-item {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 30px;
+            border-left: 2px solid #e0e0e0;
+        }
+
+        .job-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            border: 2px solid var(--white);
+        }
+
+        .job-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .company {
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .date {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .description {
+            font-size: 0.95rem;
+            color: #555;
+            text-align: justify;
+        }
+
+        .description ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-top: 5px;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .course-item {
+            font-size: 0.9rem;
+            background-color: var(--white);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-left: 4px solid var(--accent-color);
+            /* Kept for accent but subtle */
+        }
+
+        .course-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left-color: var(--primary-color);
+        }
+
+        a.course-item {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a.course-item:hover {
+            color: var(--accent-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .cv-container {
+                flex-direction: column;
+                margin: 0;
+                width: 100%;
+            }
+
+            .sidebar,
+            .main-content {
+                width: 100%;
+                padding: 30px;
+            }
+
+            .header {
+                text-align: center;
+            }
+
+            .name {
+                font-size: 2.2rem;
+            }
+
+            .title {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                display: block;
+                /* Critical fix for PDF pagination */
+                height: auto;
+            }
+
+            .cv-container {
+                box-shadow: none;
+                margin: 0;
+                width: 100%;
+                max-width: 100%;
+                display: flex;
+                /* Ensure it stays flex */
+            }
+
+            .section,
+            .job-item,
+            .contact-item,
+            .skill-item {
+                break-inside: avoid;
+            }
+
+            .sidebar {
+                background-color: var(--primary-color) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .skill-bar {
+                background-color: rgba(255, 255, 255, 0.2) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .skill-progress {
+                background-color: var(--accent-color) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="cv-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Profile Image Removed as requested -->
+
+            <div class="contact-info">
+                <h3>Contato</h3>
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>(11) 95686-2775</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>(11) 92221-3033</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:contatousbabc@gmail.com">contatousbabc@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>São Bernardo do Campo - SP, 09688-000</span>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i> <!-- Assuming linkedin exists or replace with generic link -->
+                    <a href="https://vicleandro27.wixsite.com/portifolio" target="_blank">Portfólio (Wix)</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-youtube"></i>
+                    <a href="https://www.youtube.com/channel/UC4BpFqOwoz-3YMHWZNH2TPQ" target="_blank">Canal YouTube</a>
+                </div>
+            </div>
+
+
+
+            <div class="education">
+                <h3>Educação</h3>
+                <div class="education-item">
+                    <div class="degree">Engenharia Mecânica</div>
+                    <div class="university">Fundação Santo André</div>
+                    <div class="year">Incompleto</div>
+                </div>
+                <div class="education-item">
+                    <div class="degree">Engenharia Mecânica</div>
+                    <div class="university">Instituto Mauá de Tecnologia</div>
+                    <div class="year">Incompleto</div>
+                </div>
+                <div class="education-item">
+                    <div class="degree">Técnico em Mecatrônica</div>
+                    <div class="university">Colégio Termomecânica</div>
+                </div>
+            </div>
+
+            <div class="mentorship" style="margin-bottom: 30px;">
+                <h3>Mentoria & IA</h3>
+                <div class="education-item">
+                    <div class="degree">IA para Marketing</div>
+                    <div class="university">Leo Soares (2025)</div>
+                </div>
+                <div class="education-item">
+                    <div class="degree">Turbo Prompt</div>
+                    <div class="university">Alex Bassani (2025)</div>
+                </div>
+            </div>
+
+            <div class="languages">
+                <h3>Idiomas</h3>
+                <ul class="skill-list">
+                    <li class="skill-item">
+                        <div class="skill-name">
+                            <span>Inglês</span>
+                            <span>Avançado</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </li>
+                    <li class="skill-item">
+                        <div class="skill-name">
+                            <span>Espanhol</span>
+                            <span>Intermédio</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 60%"></div>
+                        </div>
+                    </li>
+                    <li class="skill-item">
+                        <div class="skill-name">
+                            <span>Francês</span>
+                            <span>Iniciante</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 30%"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="skills">
+                <h3>Softwares</h3>
+
+                <h4
+                    style="color: var(--accent-color); margin: 15px 0 10px; font-size: 0.95rem; text-transform: uppercase;">
+                    Design & Edição</h4>
+                <ul class="skill-list">
+                    <li class="skill-item">
+                        <div class="skill-name">Photoshop & CorelDraw</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%"></div>
+                        </div>
+                    </li>
+                    <li class="skill-item">
+                        <div class="skill-name">After Effects</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 100%"></div>
+                        </div>
+                    </li>
+                </ul>
+
+                <h4
+                    style="color: var(--accent-color); margin: 15px 0 10px; font-size: 0.95rem; text-transform: uppercase;">
+                    Modelagem & 3D</h4>
+                <ul class="skill-list">
+                    <li class="skill-item">
+                        <div class="skill-name">Maya & 3ds Max</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </li>
+                    <li class="skill-item">
+                        <div class="skill-name">Marvelous & Mixamo</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress"
+                                style="width: 70%; print-color-adjust: exact; -webkit-print-color-adjust: exact;"></div>
+                        </div>
+                    </li>
+                    <li class="skill-item">
+                        <div class="skill-name">SketchUp Pro & V-Ray</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </li>
+                    <li class="skill-item">
+                        <div class="skill-name">Unity 3D</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%"></div>
+                        </div>
+                    </li>
+                </ul>
+
+                <h4
+                    style="color: var(--accent-color); margin: 15px 0 10px; font-size: 0.95rem; text-transform: uppercase;">
+                    Programação & Web</h4>
+                <ul class="skill-list">
+                    <li class="skill-item">
+                        <div class="skill-name">Python & Java</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress"
+                                style="width: 80%; print-color-adjust: exact; -webkit-print-color-adjust: exact;"></div>
+                        </div>
+                    </li>
+                    <li class="skill-item">
+                        <div class="skill-name">React (Frontend)</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress"
+                                style="width: 75%; print-color-adjust: exact; -webkit-print-color-adjust: exact;"></div>
+                        </div>
+                    </li>
+                    <li class="skill-item">
+                        <div class="skill-name">HTML & CSS</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress"
+                                style="width: 90%; print-color-adjust: exact; -webkit-print-color-adjust: exact;"></div>
+                        </div>
+                    </li>
+                    <li class="skill-item">
+                        <div class="skill-name">WordPress / Magento</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 65%"></div>
+                        </div>
+                    </li>
+                </ul>
+
+                <h4
+                    style="color: var(--accent-color); margin: 15px 0 10px; font-size: 0.95rem; text-transform: uppercase;">
+                    Engenharia & Outros</h4>
+                <ul class="skill-list">
+                    <li class="skill-item">
+                        <div class="skill-name">AutoCAD</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </li>
+                    <li class="skill-item">
+                        <div class="skill-name">Pacote Office</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <h1 class="name">Victor Leandro</h1>
+                <h2 class="title">Designer e Projetista</h2>
+            </header>
+
+            <section class="section">
+                <h3 class="section-title"><i class="fas fa-user"></i> Resumo Profissional</h3>
+                <p class="description">
+                    Profissional versátil com sólida experiência em Design 3D, Projetos Industriais e Desenvolvimento
+                    Gráfico. Expert em ferramentas como AutoCAD, Maya, 3ds Max e Adobe Suite. Atuação com e-commerce,
+                    marketing digital e estratégias de divulgação. Background técnico em mecânica e gestão de
+                    vendas/projetos. Solteiro, brasileiro e disponível para viagens.
+                </p>
+            </section>
+
+            <section class="section">
+                <h3 class="section-title"><i class="fas fa-briefcase"></i> Experiência Profissional</h3>
+
+                <div class="job-item">
+                    <div class="job-title">Lançamentos Digitais</div>
+                    <div class="company">Up Lançamentos Digitais</div>
+                    <div class="date">Mar 2023 - Atualmente</div>
+                    <div class="description">
+                        Estratégia e gestão de lançamentos digitais, tráfego e copy.
+                    </div>
+                </div>
+
+                <div class="job-item">
+                    <div class="job-title">Web Design & Marketing</div>
+                    <div class="company">Agência Buzz</div>
+                    <div class="date">Out 2021 - Dez 2022</div>
+                    <div class="description">
+                        Criação de logotipos, vídeos promocionais, artes, estratégias de divulgação. Web design,
+                        branding e estratégias de marketing.
+                    </div>
+                </div>
+
+                <div class="job-item">
+                    <div class="job-title">Desenvolvimento Loja Virtual & Marketing</div>
+                    <div class="company">Loja DGames</div>
+                    <div class="date">Mar 2019 - Abr 2019</div>
+                    <div class="description">
+                        Desenvolvimento completo de loja virtual, incluindo criação de logotipos, vídeos promocionais,
+                        artes, estratégias de divulgação e e-mail marketing.
+                    </div>
+                </div>
+
+                <div class="job-item">
+                    <div class="job-title">Designer 3D</div>
+                    <div class="company">Bitinfo Informática</div>
+                    <div class="date">Fev 2018 - Fev 2019</div>
+                    <div class="description">
+                        Desenvolvimento de logotipos, websites, folders e flyers institucionais. Modelagem e animação 3D
+                        (mascotes), criação e edição de vídeos institucionais e gerenciamento de redes sociais.
+                    </div>
+                </div>
+
+                <div class="job-item">
+                    <div class="job-title">Proprietário / Designer & Projetista</div>
+                    <div class="company">Vile Projeto e Design ME / USBABC Conteúdo Criativo</div>
+                    <div class="date">Jun 2007 - Dez 2017</div>
+                    <div class="description">
+                        <ul>
+                            <li><strong>Science System Technologies:</strong> Web design, branding e estratégias de
+                                marketing.</li>
+                            <li><strong>Proxus:</strong> Aprimoramento de embalagens.</li>
+                            <li><strong>Sumitomo & Metso Minerals:</strong> Desenho técnico e projetos industriais.</li>
+                            <li>Desenvolvimento de fachadas, impressos, vídeos institucionais e animações 3D.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="job-item">
+                    <div class="job-title">Desenvolvimento de Peças e Catálogos</div>
+                    <div class="company">Alstom (RS Engenharia)</div>
+                    <div class="date">Abr 2010 - Out 2010</div>
+                    <div class="description">
+                        Desenvolvimento de peças e catálogos utilizando AutoCAD e Catia V5, focado em digitalização e
+                        padronização de equipamentos.
+                    </div>
+                </div>
+
+                <div class="job-item">
+                    <div class="job-title">Gerente de Vendas Internas & Projetos</div>
+                    <div class="company">Sumitomo Drive Technologies</div>
+                    <div class="date">Mar 2003 - Jun 2007</div>
+                    <div class="description">
+                        Gestão comercial e técnica, processos de importação (Japão, EUA, Argentina) e desenvolvimento de
+                        projetos com auxílio de CAD.
+                    </div>
+                </div>
+
+                <div class="job-item">
+                    <div class="job-title">Operador de Máquina Tridimensional</div>
+                    <div class="company">Usicam Indústria e Comércio Ltda</div>
+                    <div class="date">Jan 2003 - Mar 2003</div>
+                    <div class="description">
+                        Operação de máquina tridimensional Mitutoyo.
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h3 class="section-title"><i class="fas fa-laptop-code"></i> Projetos Recentes</h3>
+                <div class="course-grid">
+                    <a href="https://dna-l6ej.vercel.app/" target="_blank" class="course-item">DNA Project <i
+                            class="fas fa-external-link-alt"></i></a>
+                    <a href="https://arq-orcin.vercel.app/" target="_blank" class="course-item">Arquitetura Orcin <i
+                            class="fas fa-external-link-alt"></i></a>
+                    <a href="https://tp10.vercel.app/" target="_blank" class="course-item">TP10 <i
+                            class="fas fa-external-link-alt"></i></a>
+                    <a href="https://plfv.vercel.app/dashboard" target="_blank" class="course-item">PLFV Dashboard <i
+                            class="fas fa-external-link-alt"></i></a>
+                    <a href="https://well-omega.vercel.app/" target="_blank" class="course-item">Well Omega <i
+                            class="fas fa-external-link-alt"></i></a>
+                    <a href="https://t2-dfzmw7e5d-viles-projects-72f6362f.vercel.app/" target="_blank"
+                        class="course-item">Viles Project <i class="fas fa-external-link-alt"></i></a>
+                    <a href="https://neurolab1.vercel.app/" target="_blank" class="course-item">Neurolab <i
+                            class="fas fa-external-link-alt"></i></a>
+                    <a href="https://segredodasias.vercel.app/" target="_blank" class="course-item">Segredo das IAs <i
+                            class="fas fa-external-link-alt"></i></a>
+                    <a href="https://npgusb.vercel.app/" target="_blank" class="course-item">NPG USB <i
+                            class="fas fa-external-link-alt"></i></a>
+                    <a href="https://mktv5.onrender.com/" target="_blank" class="course-item">MKT V5 <i
+                            class="fas fa-external-link-alt"></i></a>
+                </div>
+            </section>
+
+
+
+            <section class="section">
+                <h3 class="section-title"><i class="fas fa-certificate"></i> Cursos & Certificações</h3>
+                <div class="course-grid">
+                    <div class="course-item">Maya 2016 Essential Training (Lynda)</div>
+                    <div class="course-item">3ds Max 2016 Essential Training (Lynda)</div>
+                    <div class="course-item">V-Ray for Maya Professional Guide</div>
+                    <div class="course-item">Unity 5 3D Essential Training</div>
+                    <div class="course-item">Advanced Materials in Maya</div>
+                    <div class="course-item">Cert Prep 3ds Max Certified Professional</div>
+                    <div class="course-item">Expressive Facial Rigging (Gumroad)</div>
+                    <div class="course-item">Element 3D Essential Training</div>
+                    <div class="course-item">Advanced Lighting/Rendering V-Ray</div>
+                    <div class="course-item">Rigging Cartoon Character in Maya</div>
+                    <div class="course-item">Realidade Aumentada (Unity5 + EasyAR)</div>
+                    <div class="course-item">Gerenciamento Vendas/Projetos (ADVB)</div>
+                    <div class="course-item">Incoterms e Câmbio (ABRACAM)</div>
+                    <div class="course-item">Comando Numérico Computadorizado</div>
+                    <div class="course-item">Mailchimp Fundamentals</div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+
+</html>
